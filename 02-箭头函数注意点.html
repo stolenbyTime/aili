@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>箭头函数注意点</title>
+</head>
+<body>
+<script type="text/javascript">
+	//1.typeof 判断箭头函数 结果为function
+	// var f1 = a=>a;
+	// console.log(typeof f1);//'function'
+
+	//2.instanceof 判断结果为true  箭头函数也是Function构造函数的实例
+	// var f1 = a=>a;
+	// console.log(f1 instanceof Function);//true
+
+
+	//3.箭头函数中的this指向  箭头函数 不改变this指向（不绑定this）
+	//对象方法中嵌套函数时，this指向
+	/*var obj = {
+	  	say:function(){
+	  		console.log(this);//this就是obj
+	  	}
+	};
+	obj.say();*/
+
+
+	/*var obj = {
+	  	say:function(){
+	  		console.log(this);//this就是obj
+	      	//非箭头函数
+	      	var f1 = function(){
+				console.log(this);//window
+	        };
+	      	f1();
+	  	}
+	};
+	obj.say();*/
+
+
+	// var obj = {
+	//   	say:function(){
+	//   		console.log(this);//this就是obj
+	//       	//非箭头函数
+	//       	var _this = this;
+	//       	var f1 = function(){
+	//       		console.log(_this);//obj
+	// 			console.log(this);//window
+	//         };
+	//       	f1();
+	//   	}
+	// };
+	// obj.say();
+
+	//箭头函数 不改变this指向（不绑定this）
+/*	var obj = {
+	  	say:function(){
+	  		console.log(this);//this就是obj
+	      	//箭头函数
+	        var f2 = ()=>{
+				console.log(this);
+	        };
+	      	f2();
+	  	}
+	};
+	obj.say();*/
+
+	// 4.箭头函数不能做构造函数，不能用new实例化，也没有prototype属性
+	// var Person = ()=>{};
+	// console.log(Person.prototype);//undefined
+	// var p = new Person();//报错
+
+	// 5.箭头函数内部没有arguments
+	// var f1 = ()=>{
+	// 	console.log(arguments);
+	// };
+	// f1(); //报错
+	// 
+	// 6.箭头函数也支持默认参数、剩余参数、解构
+	var f1 = (x=1,y)=>{
+	  	console.log(x, y); //3 4
+	};
+	f1();
+	f1(3,4);
+
+	var f2 = (...x)=>{
+	  	console.log(x); //[3,4]
+	};
+	f2(3,4);
+	var f3 = ([x,y]=[])=>{
+	  	console.log(x, y); //3 4
+	};
+	f3([3,4]);
+</script>
+</body>
+</html>

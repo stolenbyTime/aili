@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>箭头函数</title>
+</head>
+<body>
+<!-- <script type="text/javascript">
+	//ES5中
+	function f(a){
+		return a;
+	}
+	console.log( f(100) );
+	//ES6 箭头函数
+	//1.具有一个参数并直接返回的函数
+	var f1 = a => a;
+	console.log(typeof f1);
+	console.log( f1(200) );
+	//2.没有参数的需要用在箭头前加上小括号
+	// function f2(){return '来了老弟';}
+	var f2 = () => '来了老弟';
+	console.log( f2() );
+	//3.多个参数需要用到小括号，参数间逗号间隔
+	var f3 = (a, b) => a+b;
+	console.log(f3(3,4));//7
+	//4.函数体多条语句需要用到大括号
+	var f4 = (a, b) => {
+	  	console.log('来了老弟');
+	  	return a+b;
+	}
+	console.log(f4(5,6));//11
+
+	//5.返回对象时需要用小括号包起来，因为大括号被占用解释为代码块
+	var f5 = () => {
+	  	return ({"name":"老弟", "age":40});
+	}
+
+	// var f5 = () => ({"name":"老弟", "age":40});
+	console.log(f5());
+</script> -->
+
+<input type="button" value="点击" id="btn">
+<script>
+	// 6.使用箭头函数作为事件处理函数
+	// document.getElementById('btn').onclick = function(evt){
+ //      	console.log(evt);//evt 事件对象
+	// }
+	document.getElementById('btn').onclick = evt=>{
+      	console.log(evt);//evt 事件对象
+	}
+</script>
+<script type="text/javascript">
+	//7.赋值为对象的方法
+	var obj = {};
+	// obj.say = () => {return "hello,我是obj的say方法";}
+	obj.say = () => "hello,我是obj的say方法";
+	console.log(obj.say());
+
+	//8.回调函数
+/*	function f1(){
+		console.log(200);
+	}
+	function f2(f){
+		//f 其实就是f1
+		f();
+	}
+	f2(f1);
+	//f1就是被当做回调函数*/
+	//先定义f6函数，函数内部 调用f
+	var f6 = (f)=>{
+	    console.log( f(100) );
+	};
+	//定义回调函数f7
+	// 
+	var f7 = a=>a;
+	//调用f6 将f7作为参数
+	f6(f7);
+
+	// f6(a=>a);
+</script>
+</body>
+</html>

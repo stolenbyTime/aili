@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>正则表达式</title>
+</head>
+<body>
+<script type="text/javascript">
+	// 正则表达式 是一种用来操作字符串（查找、替换、匹配）公式，描述字符串的格式。
+	// 检测数据格式 "15313456989"
+	// 查找搜索 "1232hello456world123"
+	// 替换内容 "hello, nnd sdafsa"  "hello, *** sdafsa"  153****1234
+	// 
+	// var pattern = /\d/; //其中 前后的两个/是语法格式要求。 \d 表示一个数字
+
+	//匹配str字符串中p是否存在
+	var str = 'php';
+	var result = str.match(/p/);
+	// var result = str.match(/a/);
+	//var result = str.match(/参数就是正则表达式/); //返回包含匹配结果的数组或者null
+	console.log(result);
+
+	//匹配str字符串中所有p
+	var str = 'php';
+	var result = str.match(/p/g);// global 进行全局匹配，匹配所有
+	console.log(result);
+</script>
+</body>
+</html>
